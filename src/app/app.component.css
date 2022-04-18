@@ -78,3 +78,8 @@ nz-content {
   background: #fff;
   height: 100%;
 }
+
+.header-menu {
+  display: flex;
+  justify-content: space-between;
+}
