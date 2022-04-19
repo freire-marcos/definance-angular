@@ -1,4 +1,3 @@
-import { ComponentsModule } from './components/components.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -16,6 +15,7 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 
 import { DemoNgZorroAntdModule } from './ng-zorro-antd.module'
+import { ComponentsModule } from './components/components.module';
 
 
 registerLocaleData(pt);

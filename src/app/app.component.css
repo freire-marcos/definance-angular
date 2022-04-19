@@ -83,13 +83,3 @@ nz-content {
   display: flex;
   justify-content: space-between;
 }
-
-.h-menu-list {
-  display: flex;
-  justify-content: space-around;
-  width: 186px;
-  padding: 10px;
-  font-size: 1.5em;
-  color: #0076e3;
-}
-

@@ -1,3 +1,50 @@
-<p>
-  headerMenu works!
-</p>
+<div class="h-menu-list">
+  <button
+    nzType="primary"
+    nzShape="circle"
+    nz-button
+    (click)="showReceitaModal()"
+  >
+    <i nz-icon nzType="plus" nzTheme="outline"></i>
+  </button>
+  <button
+    nzType="primary"
+    nzShape="circle"
+    nz-button
+    (click)="showCustoModal()"
+  >
+    <i nz-icon nzType="minus" nzTheme="outline"></i>
+  </button>
+</div>
+
+
+
+<nz-modal
+  #custo
+  [(nzVisible)]="isModalCustoVisible"
+  nzTitle="Adicionar custo"
+  (nzOnCancel)="handleCancelCusto()"
+  (nzOnOk)="handleCustoOk()"
+>
+  <ng-container *nzModalContent>
+    <p>testee</p>
+    <p>testee</p>
+    <p>testee</p>
+  </ng-container>
+
+</nz-modal>
+
+<nz-modal
+  #receita
+  [(nzVisible)]="isModalReceitaVisible"
+  nzTitle="Adicionar receita"
+  (nzOnCancel)="handleCancelReceita()"
+  (nzOnOk)="handleReceitaOk()"
+>
+  <ng-container *nzModalContent>
+    <p>testee</p>
+    <p>testee</p>
+    <p>testee</p>
+  </ng-container>
+
+</nz-modal>

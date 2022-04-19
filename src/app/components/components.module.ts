@@ -1,11 +1,16 @@
+import { HeaderMenuComponent } from './headerMenu/headerMenu.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentsComponent } from './components.component';
+import { DemoNgZorroAntdModule } from '../ng-zorro-antd.module'
+
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    DemoNgZorroAntdModule
   ],
-  declarations: [ComponentsComponent]
+  declarations: [ComponentsComponent, HeaderMenuComponent],
+  exports: [HeaderMenuComponent]
 })
 export class ComponentsModule { }

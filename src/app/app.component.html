@@ -43,15 +43,14 @@
               ></i>
           </span>
         </div>
-        <div class="h-menu-list">
-          <button nzType="primary" nzShape="circle" nz-button><i nz-icon nzType="plus" nzTheme="outline"></i></button>
-          <button nzType="primary" nzShape="circle" nz-button><i nz-icon nzType="minus" nzTheme="outline"></i></button>
+        <div>
+          <app-headerMenu></app-headerMenu>
         </div>
       </div>
     </nz-header>
     <nz-content>
       <div class="inner-content">
-        <router-outlet></router-outlet>>
+        <router-outlet></router-outlet>
       </div>
     </nz-content>
   </nz-layout>
