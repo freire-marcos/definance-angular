@@ -6,10 +6,8 @@
             [(nzCollapsed)]="isCollapsed"
             [nzTrigger]="null">
     <div class="sidebar-logo">
-      <a href="https://ng.ant.design/" target="_blank">
-        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
-        <h1>Ant Design Of Angular</h1>
-      </a>
+        <nz-avatar nzSize="large" nzSrc="/assets/images/julius.jpg" ></nz-avatar>
+        <h1>Julius</h1>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
       <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
@@ -45,14 +43,15 @@
               ></i>
           </span>
         </div>
-        <div>
-          <button nz-button nzType="primary">tested</button>
+        <div class="h-menu-list">
+          <button nzType="primary" nzShape="circle" nz-button><i nz-icon nzType="plus" nzTheme="outline"></i></button>
+          <button nzType="primary" nzShape="circle" nz-button><i nz-icon nzType="minus" nzTheme="outline"></i></button>
         </div>
       </div>
     </nz-header>
     <nz-content>
       <div class="inner-content">
-        <router-outlet></router-outlet>
+        <router-outlet></router-outlet>>
       </div>
     </nz-content>
   </nz-layout>
