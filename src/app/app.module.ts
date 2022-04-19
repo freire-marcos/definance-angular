@@ -15,6 +15,9 @@ import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 
+import { DemoNgZorroAntdModule } from './ng-zorro-antd.module'
+
+
 registerLocaleData(pt);
 
 @NgModule({
@@ -30,7 +33,8 @@ registerLocaleData(pt);
     IconsProviderModule,
     NzLayoutModule,
     NzMenuModule,
-    ComponentsModule
+    ComponentsModule,
+    DemoNgZorroAntdModule
   ],
   providers: [{ provide: NZ_I18N, useValue: pt_BR }],
   bootstrap: [AppComponent]
