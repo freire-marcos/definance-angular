@@ -1,3 +1,5 @@
+import { ModalAddDespesaComponent } from './modalAddDespesa/modalAddDespesa.component';
+import { ModalAddReceitaComponent } from './modalAddReceita/modalAddReceita.component';
 import { HeaderMenuComponent } from './headerMenu/headerMenu.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,7 +12,14 @@ import { DemoNgZorroAntdModule } from '../ng-zorro-antd.module'
     CommonModule,
     DemoNgZorroAntdModule
   ],
-  declarations: [ComponentsComponent, HeaderMenuComponent],
-  exports: [HeaderMenuComponent]
+  declarations: [
+    ComponentsComponent,
+    HeaderMenuComponent,
+    ModalAddReceitaComponent,
+    ModalAddDespesaComponent
+  ],
+  exports: [
+    HeaderMenuComponent
+  ]
 })
 export class ComponentsModule { }

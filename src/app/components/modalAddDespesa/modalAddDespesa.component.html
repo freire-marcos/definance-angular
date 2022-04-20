@@ -1,0 +1,24 @@
+<button
+nzDanger
+nzType="primary"
+nzShape="circle"
+nz-button
+(click)="showCustoModal()"
+>
+<i nz-icon nzType="minus" nzTheme="outline"></i>
+</button>
+
+<nz-modal
+  #custo
+  [(nzVisible)]="isModalCustoVisible"
+  nzTitle="Adicionar custo"
+  (nzOnCancel)="handleCancelCusto()"
+  (nzOnOk)="handleCustoOk()"
+>
+  <ng-container *nzModalContent>
+    <p>testee</p>
+    <p>testee</p>
+    <p>testee</p>
+  </ng-container>
+
+</nz-modal>

@@ -83,3 +83,8 @@ nz-content {
   display: flex;
   justify-content: space-between;
 }
+
+.h-menu-list {
+  display: flex;
+  align-items: center;
+}
