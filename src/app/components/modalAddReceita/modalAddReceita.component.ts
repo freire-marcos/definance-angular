@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-modalAddReceita',
@@ -7,14 +7,20 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./modalAddReceita.component.css']
 })
 export class ModalAddReceitaComponent implements OnInit {
-  public newReceitaForm = FormGroup;
+  public newReceitaForm!: FormGroup;
   isModalReceitaVisible: boolean = false;
 
   constructor(
-    private fb: FormBuilder
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    // this.newReceitaForm = this.fb.group({
+    //   descricao: ['', [Validators.required]],
+    //   valor: [null, [Validators.required]],
+    //   data: [null, [Validators.required]],
+    //   categoria: [null, [Validators.required]],
+    //   recorrente: [null, [Validators.required]]
+    // })
   }
 
   showReceitaModal() {
@@ -25,7 +31,7 @@ export class ModalAddReceitaComponent implements OnInit {
     this.isModalReceitaVisible = false;
   };
 
-  handleReceitaOk(): void {
+  handleReceitaSubmit(): void {
     console.log('ok');
   };
 

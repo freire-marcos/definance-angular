@@ -1,18 +1,18 @@
 <button
-    nzType="primary"
-    nzShape="circle"
-    nz-button
-    (click)="showReceitaModal()"
-  >
-    <i nz-icon nzType="plus" nzTheme="outline"></i>
-  </button>
+  nzType="primary"
+  nzShape="circle"
+  nz-button
+  (click)="showReceitaModal()"
+>
+  <i nz-icon nzType="plus" nzTheme="outline"></i>
+</button>
 
 <nz-modal
   #receita
   [(nzVisible)]="isModalReceitaVisible"
   nzTitle="Adicionar receita"
   (nzOnCancel)="handleCancelReceita()"
-  (nzOnOk)="handleReceitaOk()"
+  (nzOnOk)="handleReceitaSubmit()"
 >
   <ng-container *nzModalContent>
     <p>testee</p>
