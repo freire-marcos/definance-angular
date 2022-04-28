@@ -1,3 +1,4 @@
+import { DespesaService } from './services/despesa.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -37,7 +38,7 @@ registerLocaleData(pt);
     ComponentsModule,
     DemoNgZorroAntdModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: pt_BR }],
+  providers: [{ provide: NZ_I18N, useValue: pt_BR }, DespesaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

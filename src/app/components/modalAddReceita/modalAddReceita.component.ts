@@ -1,3 +1,5 @@
+import { Despesa } from './../../models/despesa';
+import { DespesaService } from './../../services/despesa.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -10,7 +12,10 @@ export class ModalAddReceitaComponent implements OnInit {
   public newReceitaForm!: FormGroup;
   isModalReceitaVisible: boolean = false;
 
+  receitaList: Despesa[] = [];
+
   constructor(
+    private readonly despesaService: DespesaService
   ) { }
 
   ngOnInit(): void {
@@ -31,8 +36,11 @@ export class ModalAddReceitaComponent implements OnInit {
     this.isModalReceitaVisible = false;
   };
 
-  handleReceitaSubmit(): void {
-    console.log('ok');
+  async handleReceitaSubmit() {
+    await this.despesaService.getDespesas().subscribe(data => {
+      this.receitaList.push(data)
+    });
+    return console.log(this.receitaList)
   };
 
 }
