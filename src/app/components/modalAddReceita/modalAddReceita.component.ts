@@ -37,6 +37,7 @@ export class ModalAddReceitaComponent implements OnInit {
   };
 
   async handleReceitaSubmit() {
+    this.receitaList = [];
     await this.despesaService.getDespesas().subscribe(data => {
       this.receitaList.push(data)
     });

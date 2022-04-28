@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Injectable } from "@angular/core";
@@ -11,7 +12,11 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+  getById(id: number) {
+    return this.http.get(`${this.API_URL}/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
   }
 }
