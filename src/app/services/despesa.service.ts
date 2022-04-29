@@ -18,8 +18,8 @@ export class DespesaService {
     });
   }
 
-  getDespesas(): Observable<Despesa> {
-    return this.http.get<Despesa>(`${this.apiUrl}despesas/`, {
+  getDespesas(): Observable<Despesa[]> {
+    return this.http.get<Despesa[]>(`${this.apiUrl}despesas/`, {
       headers: {
         "Content-Type": "application/json",
       },
