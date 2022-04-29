@@ -1,3 +1,4 @@
+import { ApiService } from './../../api.service';
 import { Despesa } from './../../models/despesa';
 import { DespesaService } from './../../services/despesa.service';
 import { Component, OnInit } from '@angular/core';
@@ -15,7 +16,8 @@ export class ModalAddReceitaComponent implements OnInit {
   receitaList: Despesa[] = [];
 
   constructor(
-    private readonly despesaService: DespesaService
+    private readonly despesaService: DespesaService,
+    private api: ApiService
   ) { }
 
   ngOnInit(): void {
@@ -26,6 +28,10 @@ export class ModalAddReceitaComponent implements OnInit {
     //   categoria: [null, [Validators.required]],
     //   recorrente: [null, [Validators.required]]
     // })
+
+    this.api.get('despesa-categorias').subscribe(data => {
+      console.log(data);
+    });
   }
 
   showReceitaModal() {
@@ -37,11 +43,11 @@ export class ModalAddReceitaComponent implements OnInit {
   };
 
   async handleReceitaSubmit() {
-    this.receitaList = [];
-    await this.despesaService.getDespesas().subscribe(data => {
-      this.receitaList.push(data)
-    });
-    return console.log(this.receitaList)
+    // this.receitaList = [];
+    // await this.despesaService.getDespesas().subscribe(data => {
+    //   this.receitaList.push(data)
+    // });
+    // return console.log(this.receitaList)
   };
 
 }

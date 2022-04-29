@@ -44,6 +44,10 @@ export class DespesaSubcategoriaService {
   }
 
   deleteDespesaSubcategoria(id: number): Observable<DespesaSubcategoria> {
-    return this.http.delete<DespesaSubcategoria>(`${this.apiUrl}despesa-subcategoria/${id}`)
+    return this.http.delete<DespesaSubcategoria>(`${this.apiUrl}despesa-subcategoria/${id}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
   }
 }

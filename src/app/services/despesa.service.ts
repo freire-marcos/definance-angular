@@ -57,6 +57,10 @@ export class DespesaService {
   }
 
   deleteDespesa(id: number): Observable<Despesa> {
-    return this.http.delete<Despesa>(`${this.apiUrl}${id}`);
+    return this.http.delete<Despesa>(`${this.apiUrl}${id}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   }
 }

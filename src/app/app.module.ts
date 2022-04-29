@@ -1,3 +1,4 @@
+import { ApiService } from './api.service';
 import { DespesaService } from './services/despesa.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -9,7 +10,7 @@ import { pt_BR } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import pt from '@angular/common/locales/pt';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
@@ -38,7 +39,7 @@ registerLocaleData(pt);
     ComponentsModule,
     DemoNgZorroAntdModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: pt_BR }, DespesaService],
+  providers: [{ provide: NZ_I18N, useValue: pt_BR }, DespesaService, {provide: HTTP_INTERCEPTORS, useClass: ApiService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
