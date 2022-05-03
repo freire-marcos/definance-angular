@@ -22,7 +22,7 @@ export class ModalAddReceitaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-      this.loadReceitaCategorias()
+      this.loadReceitaCategorias();
 
       this.newReceitaForm = this.fb.group({
         descricao: ['', Validators.required],
@@ -30,10 +30,8 @@ export class ModalAddReceitaComponent implements OnInit {
         data: [null, Validators.required],
         categoriaId: [null, Validators.required],
         pessoaId: [1, []]
-      })
+      });
 
-    this.api.get('despesa-categorias').subscribe(data => {
-    });
   }
 
   showReceitaModal() {
