@@ -1,3 +1,4 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalAddDespesaComponent } from './modalAddDespesa/modalAddDespesa.component';
 import { ModalAddReceitaComponent } from './modalAddReceita/modalAddReceita.component';
 import { HeaderMenuComponent } from './headerMenu/headerMenu.component';
@@ -10,16 +11,18 @@ import { DemoNgZorroAntdModule } from '../ng-zorro-antd.module'
 @NgModule({
   imports: [
     CommonModule,
-    DemoNgZorroAntdModule
+    DemoNgZorroAntdModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     ComponentsComponent,
     HeaderMenuComponent,
     ModalAddReceitaComponent,
-    ModalAddDespesaComponent
+    ModalAddDespesaComponent,
   ],
   exports: [
-    HeaderMenuComponent
+    HeaderMenuComponent,
   ]
 })
 export class ComponentsModule { }

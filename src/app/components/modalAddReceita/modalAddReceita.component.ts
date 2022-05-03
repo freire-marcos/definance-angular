@@ -1,8 +1,7 @@
 import { ApiService } from './../../api.service';
-import { Despesa } from './../../models/despesa';
 import { DespesaService } from './../../services/despesa.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-modalAddReceita',
@@ -10,27 +9,30 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./modalAddReceita.component.css']
 })
 export class ModalAddReceitaComponent implements OnInit {
-  public newReceitaForm!: FormGroup;
+  newReceitaForm!: FormGroup;
   isModalReceitaVisible: boolean = false;
 
-  receitaList: Despesa[] = [];
+  receitaCategorias: any = [];
+  postData: any = '';
 
   constructor(
     private readonly despesaService: DespesaService,
-    private api: ApiService
+    private api: ApiService,
+    private fb: FormBuilder
   ) { }
 
   ngOnInit(): void {
-    // this.newReceitaForm = this.fb.group({
-    //   descricao: ['', [Validators.required]],
-    //   valor: [null, [Validators.required]],
-    //   data: [null, [Validators.required]],
-    //   categoria: [null, [Validators.required]],
-    //   recorrente: [null, [Validators.required]]
-    // })
+      this.loadReceitaCategorias()
+
+      this.newReceitaForm = this.fb.group({
+        descricao: ['', Validators.required],
+        valor: [null, Validators.required],
+        data: [null, Validators.required],
+        categoriaId: [null, Validators.required],
+        pessoaId: [1, []]
+      })
 
     this.api.get('despesa-categorias').subscribe(data => {
-      console.log(data);
     });
   }
 
@@ -42,12 +44,13 @@ export class ModalAddReceitaComponent implements OnInit {
     this.isModalReceitaVisible = false;
   };
 
-  async handleReceitaSubmit() {
-    // this.receitaList = [];
-    // await this.despesaService.getDespesas().subscribe(data => {
-    //   this.receitaList.push(data)
-    // });
-    // return console.log(this.receitaList)
-  };
+  loadReceitaCategorias() {
+    return this.api.get('receita-categorias').subscribe(data => {
+      this.receitaCategorias = data
+    })
+  }
 
+  async handleReceitaSubmit(form: any) {
+    return await this.api.post('receita/', form).subscribe(() => this.isModalReceitaVisible = false)
+  };
 }

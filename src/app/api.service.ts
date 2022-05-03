@@ -36,7 +36,6 @@ export class ApiService {
 
       return next.handle(request).pipe(map((event: HttpEvent<any>)=>{
         if (event instanceof HttpResponse) {
-          console.log('caindo aqui')
           console.log(event.body); //retorna os dados da requisição
           console.log(event.headers)
         }
@@ -51,5 +50,17 @@ export class ApiService {
 
   get(route: string) {
     return this.http.get(`${this.URL}${route}`)
+  }
+
+  post(route: string, params: {}) {
+    return this.http.post(`${this.URL}${route}`, params)
+  }
+
+  update(route: string, params: {}) {
+    return this.http.put(`${this.URL}${route}`, params)
+  }
+
+  delete(route: string) {
+    return this.http.delete(`${this.URL}${route}`)
   }
 }

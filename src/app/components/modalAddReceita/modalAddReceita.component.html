@@ -12,12 +12,72 @@
   [(nzVisible)]="isModalReceitaVisible"
   nzTitle="Adicionar receita"
   (nzOnCancel)="handleCancelReceita()"
-  (nzOnOk)="handleReceitaSubmit()"
+  (nzOnOk)="handleReceitaSubmit(newReceitaForm.value)"
 >
   <ng-container *nzModalContent>
-    <p>testee</p>
-    <p>testee</p>
-    <p>testee</p>
+    <form
+      nz-form
+      [formGroup]="newReceitaForm"
+      autocomplete="off"
+    >
+
+    <nz-form-item>
+      <nz-form-label nzRequired nzFor="descricao">
+        Descrição da receita
+      </nz-form-label>
+
+      <nz-form-control>
+        <input
+          type="text"
+          nz-input
+          formControlName="descricao"
+          placeholder="Descrição da receita"
+        >
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label nzRequired nzFor="valor">
+        Valor
+      </nz-form-label>
+
+      <nz-form-control>
+        <input
+          type="number"
+          nz-input
+          formControlName="valor"
+          placeholder="Valor da receita"
+        >
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label nzRequired nzFor="valor">
+        Data
+      </nz-form-label>
+
+      <nz-form-control>
+        <nz-date-picker formControlName="data"></nz-date-picker>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label nzRequired nzFor="categoria">
+        Categoria
+      </nz-form-label>
+
+      <nz-form-control>
+        <nz-select nzPlaceHolder="Selecione..." formControlName="categoriaId">
+          <nz-option
+            *ngFor="let categoria of receitaCategorias"
+            [nzValue]="categoria.id"
+            [nzLabel]="categoria.descricao"
+          ></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    </form>
   </ng-container>
 
 </nz-modal>
