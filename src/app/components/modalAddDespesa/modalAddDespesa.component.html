@@ -11,23 +11,24 @@ nz-button
 <nz-modal
   #custo
   [(nzVisible)]="isModalCustoVisible && !isLoading"
-  nzTitle="Adicionar custo"
+  nzTitle="Adicionar despesa"
   (nzOnCancel)="handleCancelCusto()"
   (nzOnOk)="handleSubmit(newDespesaForm.value)"
 >
   <ng-container *nzModalContent>
     <form
+      class="form"
       nz-form
       [formGroup]="newDespesaForm"
       autocomplete="off"
     >
 
-    <nz-form-item>
+    <nz-form-item class="form-item">
       <nz-form-label nzRequired nzFor="Descricao">
         Descrição da despesa
       </nz-form-label>
 
-      <nz-form-control>
+      <nz-form-control class="field">
         <input
           type="text"
           nz-input
@@ -37,12 +38,12 @@ nz-button
       </nz-form-control>
     </nz-form-item>
 
-    <nz-form-item>
+    <nz-form-item class="form-item">
       <nz-form-label nzRequired nzFor="Valor">
         Valor
       </nz-form-label>
 
-      <nz-form-control>
+      <nz-form-control  class="field">
         <input
           type="number"
           nz-input
@@ -52,22 +53,22 @@ nz-button
       </nz-form-control>
     </nz-form-item>
 
-    <nz-form-item>
+    <nz-form-item class="form-item">
       <nz-form-label nzRequired nzFor="Data">
         Data
       </nz-form-label>
 
-      <nz-form-control>
+      <nz-form-control  class="field">
         <nz-date-picker formControlName="data"></nz-date-picker>
       </nz-form-control>
     </nz-form-item>
 
-    <nz-form-item>
+    <nz-form-item class="form-item">
       <nz-form-label nzRequired nzFor="categoria">
         Categoria
       </nz-form-label>
 
-      <nz-form-control>
+      <nz-form-control  class="field">
         <nz-select nzPlaceHolder="Selecione..." formControlName="categoriaId">
           <nz-option
             *ngFor="let categoria of despesaCategoriaList"
@@ -78,12 +79,12 @@ nz-button
       </nz-form-control>
     </nz-form-item>
 
-    <nz-form-item>
+    <nz-form-item class="form-item">
       <nz-form-label nzRequired nzFor="subcategoriaId">
         Subcategoria
       </nz-form-label>
 
-      <nz-form-control>
+      <nz-form-control  class="field">
         <nz-select nzPlaceHolder="Selecione..." formControlName="subCategoriaId">
           <nz-option
             *ngFor="let subcategoria of despesaSubcategoriaList"

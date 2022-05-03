@@ -42,15 +42,10 @@ export class ModalAddDespesaComponent implements OnInit {
     this.isModalCustoVisible = false;
   };
 
-  handleCustoOk(): void {
-    console.log('ok');
-  };
-
   async loadDespesaCategoria() {
     this.isLoading = true
     return await this.api.get('despesa-categorias').subscribe(data => {
       this.despesaCategoriaList = data;
-      console.log(this.despesaCategoriaList)
       this.isLoading = false;
     });
   }
@@ -59,12 +54,13 @@ export class ModalAddDespesaComponent implements OnInit {
     this.isLoading = true;
     return await this.api.get('despesa-subcategorias').subscribe(data => {
       this.despesaSubcategoriaList = data;
-      console.log(this.despesaSubcategoriaList)
       this.isLoading = false;
     })
   }
 
   async handleSubmit(form: any) {
-    return this.api.post('despesa/', form).subscribe(() => {});
+    return await this.api.post('despesa/', form).subscribe(() => {
+      this.isModalCustoVisible = false;
+    });
   }
 }
