@@ -49,6 +49,11 @@ export class ModalAddReceitaComponent implements OnInit {
   }
 
   async handleReceitaSubmit(form: any) {
-    return await this.api.post('receita/', form).subscribe(() => this.isModalReceitaVisible = false)
+    return await this.api.post('receita/', form).subscribe(() => {
+      this.newReceitaForm.reset();
+      this.newReceitaForm.patchValue({pessoaId: 1})
+      this.isModalReceitaVisible = false;
+    });
+
   };
 }

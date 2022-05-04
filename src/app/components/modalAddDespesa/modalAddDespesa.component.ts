@@ -60,6 +60,8 @@ export class ModalAddDespesaComponent implements OnInit {
 
   async handleSubmit(form: any) {
     return await this.api.post('despesa/', form).subscribe(() => {
+      this.newDespesaForm.reset();
+      this.newDespesaForm.patchValue({pessoaId: 1})
       this.isModalCustoVisible = false;
     });
   }

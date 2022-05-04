@@ -1,3 +1,4 @@
+import { InfoCardComponent } from './infoCard/infoCard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalAddDespesaComponent } from './modalAddDespesa/modalAddDespesa.component';
 import { ModalAddReceitaComponent } from './modalAddReceita/modalAddReceita.component';
@@ -20,9 +21,11 @@ import { DemoNgZorroAntdModule } from '../ng-zorro-antd.module'
     HeaderMenuComponent,
     ModalAddReceitaComponent,
     ModalAddDespesaComponent,
+    InfoCardComponent,
   ],
   exports: [
     HeaderMenuComponent,
+    InfoCardComponent,
   ]
 })
 export class ComponentsModule { }

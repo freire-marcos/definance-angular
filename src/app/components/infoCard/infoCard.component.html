@@ -1,0 +1,42 @@
+<div class="container">
+
+  <nz-card style="width:250px;" nzTitle="Receita mensal">
+    <h1>{{ receitaTotal | number: '.2-2' }}</h1>
+  </nz-card>
+
+  <nz-card (click)="setModalDespesasVisible()" nzHoverable style="width:250px; color: #222;" nzTitle="Gastos mês">
+    <h1>{{ custoTotal | number: '.2-2' }}</h1>
+  </nz-card>
+
+  <nz-card style="width:250px; color: #222;" nzTitle="Balanço">
+    <h1>{{ receitaTotal - custoTotal | number: '.2-2' }}</h1>
+  </nz-card>
+</div>
+
+<nz-modal
+  [(nzVisible)]="isModalDespesasVisible"
+  nzTitle="Despesas"
+  (nzOnCancel)="setModalDespesasVisible()"
+  nzWidth="50%"
+>
+  <ng-container *nzModalContent>
+    <nz-table #despesasTable [nzData]="listaCustos">
+      <thead>
+        <tr>
+          <th>Descrição</th>
+          <th>Valor</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of despesasTable.data">
+          <td>{{ data.descricao }}</td>
+          <td>{{ data.valor }}</td>
+          <td>{{ data.data }}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+
+  </ng-container>
+
+</nz-modal>
